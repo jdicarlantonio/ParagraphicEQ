@@ -80,6 +80,8 @@ private:
     //[/UserVariables]
 
     //==============================================================================
+    ScopedPointer<Label> hzLabel;
+    ScopedPointer<Label> dbLabel;
     ScopedPointer<Slider> highFreqKnob;
     ScopedPointer<Slider> highGainKnob;
     ScopedPointer<Slider> highMidFreqKnob;
@@ -93,6 +95,8 @@ private:
     ScopedPointer<Label> highRangeLabel3;
     ScopedPointer<Label> label;
     ScopedPointer<Label> label2;
+    ScopedPointer<Label> qConstLabel;
+    ScopedPointer<Slider> qProportionSLider;
 
 
     //==============================================================================
