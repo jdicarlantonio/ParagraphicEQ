@@ -1,0 +1,38 @@
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2017
+
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ParagraphicEQ - Standalone Plugin", "ParagraphicEQ_StandalonePlugin.vcxproj", "{582CB470-32E6-268D-4575-F6FEE26E29BE}"
+	ProjectSection(ProjectDependencies) = postProject
+		{09C50BD6-AF86-ED1F-ED5B-F83CC0BB12F0} = {09C50BD6-AF86-ED1F-ED5B-F83CC0BB12F0}
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ParagraphicEQ - VST", "ParagraphicEQ_VST.vcxproj", "{F5E1CCC5-1C61-DD5A-D149-F9047BC3C69C}"
+	ProjectSection(ProjectDependencies) = postProject
+		{09C50BD6-AF86-ED1F-ED5B-F83CC0BB12F0} = {09C50BD6-AF86-ED1F-ED5B-F83CC0BB12F0}
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ParagraphicEQ - Shared Code", "ParagraphicEQ_SharedCode.vcxproj", "{09C50BD6-AF86-ED1F-ED5B-F83CC0BB12F0}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x64 = Debug|x64
+		Release|x64 = Release|x64
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F5E1CCC5-1C61-DD5A-D149-F9047BC3C69C}.Debug|x64.ActiveCfg = Debug|x64
+		{F5E1CCC5-1C61-DD5A-D149-F9047BC3C69C}.Debug|x64.Build.0 = Debug|x64
+		{F5E1CCC5-1C61-DD5A-D149-F9047BC3C69C}.Release|x64.ActiveCfg = Release|x64
+		{F5E1CCC5-1C61-DD5A-D149-F9047BC3C69C}.Release|x64.Build.0 = Release|x64
+		{582CB470-32E6-268D-4575-F6FEE26E29BE}.Debug|x64.ActiveCfg = Debug|x64
+		{582CB470-32E6-268D-4575-F6FEE26E29BE}.Debug|x64.Build.0 = Debug|x64
+		{582CB470-32E6-268D-4575-F6FEE26E29BE}.Release|x64.ActiveCfg = Release|x64
+		{582CB470-32E6-268D-4575-F6FEE26E29BE}.Release|x64.Build.0 = Release|x64
+		{09C50BD6-AF86-ED1F-ED5B-F83CC0BB12F0}.Debug|x64.ActiveCfg = Debug|x64
+		{09C50BD6-AF86-ED1F-ED5B-F83CC0BB12F0}.Debug|x64.Build.0 = Debug|x64
+		{09C50BD6-AF86-ED1F-ED5B-F83CC0BB12F0}.Release|x64.ActiveCfg = Release|x64
+		{09C50BD6-AF86-ED1F-ED5B-F83CC0BB12F0}.Release|x64.Build.0 = Release|x64
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
