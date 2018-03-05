@@ -68,7 +68,8 @@ private:
     ScopedPointer<SliderAttachment> qProportionAttachment;
 
     BasicKnobLF basicKnobLow;
-    BasicKnobLF basicKnobMid;
+    BasicKnobLF basicKnobLowMid;
+	BasicKnobLF basicKnobHighMid;
     BasicKnobLF basicKnobHigh;
 
     ParagraphicEqAudioProcessor& processor;
@@ -81,6 +82,8 @@ private:
     //[/UserVariables]
 
     //==============================================================================
+    ScopedPointer<Label> label2;
+    ScopedPointer<Label> label;
     ScopedPointer<Label> hzLabel;
     ScopedPointer<Label> dbLabel;
     ScopedPointer<Slider> highFreqKnob;
@@ -92,10 +95,8 @@ private:
     ScopedPointer<Slider> lowFreqKnob;
     ScopedPointer<Slider> lowGainKnob;
     ScopedPointer<Label> highRangeLabel;
-    ScopedPointer<Label> highRangeLabel2;
-    ScopedPointer<Label> highRangeLabel3;
-    ScopedPointer<Label> label;
-    ScopedPointer<Label> label2;
+    ScopedPointer<Label> lowRangeLabel;
+    ScopedPointer<Label> midRangeLabel;
     ScopedPointer<Label> qConstLabel;
     ScopedPointer<Slider> qProportionSLider;
 

@@ -14,6 +14,8 @@
 
 #include "DSP/BiQuad.h"
 
+#include <array>
+
 
 //==============================================================================
 /**
@@ -89,7 +91,7 @@ public:
         return parameters;
     }
     
-    void parameterChanged(const String& parameterID, float newValue)
+    void parameterChanged(const String& /*parameterID*/, float /*newValue*/)
     {
         paramChanged = true;
     }
@@ -100,12 +102,12 @@ private:
     UndoManager undoManager;
 
     // Q is proportional to Gain by a factor set by user
-    float dBGain;
+    float dBGainMagnitude;
     float Q;
     float proportionConstant;
 
-    std::array<BiQuad, NUM_BANDS> leftFilters;
-    std::array<BiQuad, NUM_BANDS> rightFilters;
+    BiQuad leftFilters[NUM_BANDS];
+    BiQuad rightFilters[NUM_BANDS];
     //==============================================================================
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (ParagraphicEqAudioProcessor)
 };

@@ -37,6 +37,11 @@ static String bandToString(int bandValue)
             return "High";
             break;
         }
+		default:
+		{
+			return "No Range";
+			break;
+		}
     }
 }
 
@@ -57,7 +62,7 @@ ParagraphicEqAudioProcessor::ParagraphicEqAudioProcessor()
                        )
      , parameters (*this, &undoManager)
      , Q {0.71f}
-     , dBGain {0.0f}
+     , dBGainMagnitude {0.0f}
 #endif
 {
     parameters.createAndAddParameter(
@@ -262,19 +267,21 @@ void ParagraphicEqAudioProcessor::processBlock (AudioBuffer<float>& buffer, Midi
         proportionConstant = *parameters.getRawParameterValue("qProportion");
         for(int i = 0; i < NUM_BANDS; ++i)
         {
-            dBGain = *parameters.getRawParameterValue(gainParameterIDs[i]);
-            Q = (dBGain == 0) ? Q : (dBGain * proportionConstant);
+            dBGainMagnitude = *parameters.getRawParameterValue(gainParameterIDs[i]);
+			dBGainMagnitude = (dBGainMagnitude < 0) ? -dBGainMagnitude : dBGainMagnitude;
+
+            Q = (dBGainMagnitude == 0) ? Q : (dBGainMagnitude * proportionConstant);
 
             leftFilters[i].calculateCoefficients(
                 getSampleRate(),
                 *parameters.getRawParameterValue(freqParameterIDs[i]),
-                dBGain,
+				*parameters.getRawParameterValue(gainParameterIDs[i]),
                 Q
             );
             rightFilters[i].calculateCoefficients(
                 getSampleRate(),
                 *parameters.getRawParameterValue(freqParameterIDs[i]),
-                dBGain,
+				*parameters.getRawParameterValue(gainParameterIDs[i]),
                 Q
             );
         }

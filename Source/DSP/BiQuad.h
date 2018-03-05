@@ -12,8 +12,8 @@
 
 #include <iostream>
 
-static constexpr float PI = 3.141592654;
-static constexpr float ROOT_TWO = 1.41421356237;
+static constexpr double PI = 3.14159;
+static constexpr double ROOT_TWO = 1.41421;
 
 enum FilterType
 {
