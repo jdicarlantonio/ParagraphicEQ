@@ -56,6 +56,8 @@ ParagraphicEqAudioProcessor::ParagraphicEqAudioProcessor()
                      #endif
                        )
      , parameters (*this, &undoManager)
+     , Q {0.71f}
+     , dBGain {0.0f}
 #endif
 {
     parameters.createAndAddParameter(
@@ -115,6 +117,7 @@ ParagraphicEqAudioProcessor::ParagraphicEqAudioProcessor()
         nullptr,
         nullptr
     );
+    proportionConstant = 0.25f;
 
     // Gain Parameters
     for(int i = 0; i < NUM_BANDS; ++i)
@@ -253,25 +256,28 @@ void ParagraphicEqAudioProcessor::processBlock (AudioBuffer<float>& buffer, Midi
     auto totalNumInputChannels  = getTotalNumInputChannels();
     auto totalNumOutputChannels = getTotalNumOutputChannels();
 
-    // calculate some coefficients
-    proportionConstant = *parameters.getRawParameterValue("qProportion");
-    for(int i = 0; i < NUM_BANDS; ++i)
+    if(paramChanged)
     {
-        dBGain = *parameters.getRawParameterValue(gainParameterIDs[i]);
-        Q = dBGain * proportionConstant;
+        // calculate some coefficients
+        proportionConstant = *parameters.getRawParameterValue("qProportion");
+        for(int i = 0; i < NUM_BANDS; ++i)
+        {
+            dBGain = *parameters.getRawParameterValue(gainParameterIDs[i]);
+            Q = (dBGain == 0) ? Q : (dBGain * proportionConstant);
 
-        leftFilters[i].calculateCoefficients(
-            getSampleRate(),
-            *parameters.getRawParameterValue(freqParameterIDs[i]),
-            dBGain,
-            Q
-        );
-        rightFilters[i].calculateCoefficients(
-            getSampleRate(),
-            *parameters.getRawParameterValue(freqParameterIDs[i]),
-            dBGain,
-            Q
-        );
+            leftFilters[i].calculateCoefficients(
+                getSampleRate(),
+                *parameters.getRawParameterValue(freqParameterIDs[i]),
+                dBGain,
+                Q
+            );
+            rightFilters[i].calculateCoefficients(
+                getSampleRate(),
+                *parameters.getRawParameterValue(freqParameterIDs[i]),
+                dBGain,
+                Q
+            );
+        }
     }
 
     // In case we have more outputs than inputs, this code clears any output
