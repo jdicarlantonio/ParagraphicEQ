@@ -105,6 +105,17 @@ ParagraphicEqAudioProcessor::ParagraphicEqAudioProcessor()
         nullptr
     );
 
+    // Q factor is proportional to Gain in dB 
+    parameters.createAndAddParameter(
+        "qProportion",
+        "Proportion Constant for Q - Gain Relationship",
+        String(),
+        NormalisableRange<float> (0.001f, 1.0f, 0.001f),
+        0.250f,
+        nullptr,
+        nullptr
+    );
+
     // Gain Parameters
     for(int i = 0; i < NUM_BANDS; ++i)
     {
@@ -120,6 +131,7 @@ ParagraphicEqAudioProcessor::ParagraphicEqAudioProcessor()
     }
     
     parameters.addParameterListener("bypass", this);
+    parameters.addParameterListener("qProportion", this);
     for(int i = 0; i < NUM_BANDS; ++i)
     {
         parameters.addParameterListener(freqParameterIDs[i], this);
@@ -198,8 +210,11 @@ void ParagraphicEqAudioProcessor::changeProgramName (int index, const String& ne
 //==============================================================================
 void ParagraphicEqAudioProcessor::prepareToPlay (double sampleRate, int samplesPerBlock)
 {
-    // Use this method as the place to do any pre-playback
-    // initialisation that you need..
+    for(int i = 0; i < NUM_BANDS; ++i)
+    {
+        leftFilters[i].reset();
+        rightFilters[i].reset();
+    }
 }
 
 void ParagraphicEqAudioProcessor::releaseResources()
@@ -238,6 +253,27 @@ void ParagraphicEqAudioProcessor::processBlock (AudioBuffer<float>& buffer, Midi
     auto totalNumInputChannels  = getTotalNumInputChannels();
     auto totalNumOutputChannels = getTotalNumOutputChannels();
 
+    // calculate some coefficients
+    proportionConstant = *parameters.getRawParameterValue("qProportion");
+    for(int i = 0; i < NUM_BANDS; ++i)
+    {
+        dBGain = *parameters.getRawParameterValue(gainParameterIDs[i]);
+        Q = dBGain * proportionConstant;
+
+        leftFilters[i].calculateCoefficients(
+            getSampleRate(),
+            *parameters.getRawParameterValue(freqParameterIDs[i]),
+            dBGain,
+            Q
+        );
+        rightFilters[i].calculateCoefficients(
+            getSampleRate(),
+            *parameters.getRawParameterValue(freqParameterIDs[i]),
+            dBGain,
+            Q
+        );
+    }
+
     // In case we have more outputs than inputs, this code clears any output
     // channels that didn't contain input data, (because these aren't
     // guaranteed to be empty - they may contain garbage).
@@ -247,17 +283,18 @@ void ParagraphicEqAudioProcessor::processBlock (AudioBuffer<float>& buffer, Midi
     for (auto i = totalNumInputChannels; i < totalNumOutputChannels; ++i)
         buffer.clear (i, 0, buffer.getNumSamples());
 
-    // This is the place where you'd normally do the guts of your plugin's
-    // audio processing...
-    // Make sure to reset the state if your inner loop is processing
-    // the samples and the outer loop is handling the channels.
-    // Alternatively, you can process the samples with the channels
-    // interleaved by keeping the same state.
-    for (int channel = 0; channel < totalNumInputChannels; ++channel)
+    // check if bypassed
+    if(*parameters.getRawParameterValue("bypass") == 0.0f)
     {
-        auto* channelData = buffer.getWritePointer (channel);
+        // we aren't bypassed in here
+        float* leftChannelData = buffer.getWritePointer(0);
+        float* rightChannelData = buffer.getWritePointer(1);
 
-        // ..do something to the data...
+        for(int i = 0; i < NUM_BANDS; ++i)
+        {
+            leftFilters[i].process(leftChannelData, buffer.getNumSamples());
+            rightFilters[i].process(rightChannelData, buffer.getNumSamples());
+        }
     }
 }
 

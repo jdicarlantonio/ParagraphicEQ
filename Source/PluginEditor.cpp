@@ -255,6 +255,11 @@ ParagraphicEqAudioProcessorEditor::ParagraphicEqAudioProcessorEditor (Paragraphi
         "bypass",
         bypassButton
     );
+    qProportionAttachment = new SliderAttachment(
+        processor.getState(),
+        "qProportion",
+        *qProportionSLider // the L is capital, I should fix this but...
+    );
 
     // Band Gain and Freq Attachments
     frequencyKnobAttachments[FrequencyRange::LOW] = new SliderAttachment(
@@ -305,6 +310,7 @@ ParagraphicEqAudioProcessorEditor::~ParagraphicEqAudioProcessorEditor()
 {
     //[Destructor_pre]. You can add your own custom destruction code here..
     bypassAttachment = nullptr;
+    qProportionAttachment = nullptr;
     //[/Destructor_pre]
 
     hzLabel = nullptr;

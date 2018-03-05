@@ -65,6 +65,7 @@ private:
 
     ScopedPointer<SliderAttachment> frequencyKnobAttachments[NUM_BANDS];
     ScopedPointer<SliderAttachment> gainKnobAttachments[NUM_BANDS];
+    ScopedPointer<SliderAttachment> qProportionAttachment;
 
     BasicKnobLF basicKnobLow;
     BasicKnobLF basicKnobMid;

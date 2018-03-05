@@ -99,6 +99,11 @@ private:
     AudioProcessorValueTreeState parameters;
     UndoManager undoManager;
 
+    // Q is proportional to Gain by a factor set by user
+    float dBGain = 0.0f;
+    float Q = 0.0f;
+    float proportionConstant = 0.0f;
+
     std::array<BiQuad, NUM_BANDS> leftFilters;
     std::array<BiQuad, NUM_BANDS> rightFilters;
     //==============================================================================
