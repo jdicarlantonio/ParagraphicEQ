@@ -19,7 +19,9 @@ enum FilterType
 {
 	PEAK, // 0
 	LOW_PASS,
-	HIGH_PASS
+	HIGH_PASS,
+	LOW_SHELF,
+	HIGH_SHELF
 };
 
 class BiQuad

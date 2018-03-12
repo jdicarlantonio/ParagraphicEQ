@@ -91,6 +91,34 @@ void BiQuad::calculateCoefficients(float fs, float f0, float gain, float Q)
 
 			break;	
 		}	
+		case FilterType::LOW_SHELF:
+		{
+			float amplitude = powf(10.0f, gain / 40.0f);
+			// setting slope == 1 for steepest slope without any dips
+			float alpha = (sinomega/2) * sqrt(2);
+			float sqrtAmpByAlpha = 2 * sqrt(amplitude) * alpha
+			
+			b0 = amplitude * ((amplitude + 1) - ((amplitude - 1) * cosomega) + (sqrtAmpByAlpha));
+			b1 = (2*amplitude) * ((amplitude - 1) - ((amplitude + 1) * cosomega));
+			b2 = amplitude * ((amplitude + 1) - ((amplitude - 1) * cosomega) - (sqrtAmpByAlpha));
+			a0 = (amplitude + 1) + ((amplitude - 1) * cosomega) + (sqrtAmpByAlpha);
+			a1 = -2 * ((amplitude - 1) + ((amplitude + 1) * cosomega));
+			a2 = (amplitude + 1) + ((amplitude - 1) * cosomega) - sqrtAmpByAlpha;
+		}
+		case FilterType::HIGH_SHELF:
+		{
+			float amplitude = powf(10.0f, gain / 40.0f);
+			// setting slope == 1 for steepest slope without any dips
+			float alpha = (sinomega/2) * sqrt(2);
+			float sqrtAmpByAlpha = 2 * sqrt(amplitude) * alpha
+			
+			b0 = amplitude * ((amplitude + 1) + ((amplitude - 1) * cosomega) + (sqrtAmpByAlpha));
+			b1 = (-2*amplitude) * ((amplitude - 1) + ((amplitude + 1) * cosomega));
+			b2 = amplitude * ((amplitude + 1) + ((amplitude - 1) * cosomega) - (sqrtAmpByAlpha));
+			a0 = (amplitude + 1) - ((amplitude - 1) * cosomega) + (sqrtAmpByAlpha);
+			a1 = 2 * ((amplitude - 1) - ((amplitude + 1) * cosomega));
+			a2 = (amplitude + 1) - ((amplitude - 1) * cosomega) - sqrtAmpByAlpha;
+		}
 	}
 }
 
