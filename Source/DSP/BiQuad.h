@@ -28,7 +28,7 @@ class BiQuad
 {
 public:
 	BiQuad();
-	BiQuad(FilterType ftype); // 0 Peak, 1 Low Shelf, 2 High Shelf
+	BiQuad(FilterType ftype); // 0 Peak, 1 Low pass, 2 High Pass, etc... (see enum)
 	~BiQuad();
 
 	void calculateCoefficients(float fs, float f0, float gain, float Q = 2);
