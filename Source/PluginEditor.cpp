@@ -7,7 +7,7 @@
   the "//[xyz]" and "//[/xyz]" sections will be retained when the file is loaded
   and re-saved.
 
-  Created with Projucer version: 5.2.1
+  Created with Projucer version: 5.3.1
 
   ------------------------------------------------------------------------------
 
@@ -363,7 +363,7 @@ void ParagraphicEqAudioProcessorEditor::paint (Graphics& g)
     //[UserPrePaint] Add your own custom painting code here..
     //[/UserPrePaint]
 
-    g.fillAll (Colour (0xff344c58));
+    g.fillAll (Colour (0xff31454e));
 
     {
         int x = 180, y = 0, width = 1, height = 310;
@@ -477,7 +477,7 @@ BEGIN_JUCER_METADATA
                  variableInitialisers="AudioProcessorEditor(&amp;ownerProc), processor(ownerProc)"
                  snapPixels="8" snapActive="1" snapShown="1" overlayOpacity="0.330"
                  fixedSize="0" initialWidth="745" initialHeight="310">
-  <BACKGROUND backgroundColour="ff344c58">
+  <BACKGROUND backgroundColour="ff31454e">
     <RECT pos="180 0 1 310" fill="solid: ff000000" hasStroke="0"/>
     <RECT pos="572 4 1 310" fill="solid: ff000000" hasStroke="0"/>
   </BACKGROUND>

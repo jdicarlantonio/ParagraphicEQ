@@ -91,7 +91,7 @@ void BiQuad::calculateCoefficients(float fs, float f0, float gain, float Q)
 
 			break;	
 		}	
-		case FilterType::LOW_SHELF:
+/*		case FilterType::LOW_SHELF:
 		{
 			float amplitude = powf(10.0f, gain / 40.0f);
 			// setting slope == 1 for steepest slope without any dips
@@ -118,7 +118,7 @@ void BiQuad::calculateCoefficients(float fs, float f0, float gain, float Q)
 			a0 = (amplitude + 1) - ((amplitude - 1) * cosomega) + (sqrtAmpByAlpha);
 			a1 = 2 * ((amplitude - 1) - ((amplitude + 1) * cosomega));
 			a2 = (amplitude + 1) - ((amplitude - 1) * cosomega) - sqrtAmpByAlpha;
-		}
+		} */
 	}
 }
 

@@ -20,7 +20,7 @@ enum FilterType
 	PEAK, // 0
 	LOW_PASS,
 	HIGH_PASS,
-	LOW_SHELF,
+	LOW_SHELF, // need to fix low and high shelf implementations
 	HIGH_SHELF
 };
 

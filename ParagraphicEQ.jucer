@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <JUCERPROJECT name="ParagraphicEQ" projectType="audioplug" buildStandalone="1"
-              jucerVersion="5.2.1">
+              jucerVersion="5.3.1" pluginFormats="buildStandalone,buildVST,buildVST3"
+              buildVST="1" buildVST3="1" buildAU="0" buildAUv3="0" buildRTAS="0"
+              buildAAX="0" enableIAA="0">
   <MAINGROUP id="UwxCuN" name="ParagraphicEQ">
     <GROUP id="{202C9887-5EC0-F4BA-34F3-63960A54496F}" name="Source">
       <FILE id="NZeaba" name="BiQuad.cpp" compile="1" resource="0" file="Source/DSP/BiQuad.cpp"/>

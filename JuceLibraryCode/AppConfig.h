@@ -93,6 +93,14 @@
  //#define JUCE_JACK 0
 #endif
 
+#ifndef    JUCE_BELA
+ //#define JUCE_BELA 0
+#endif
+
+#ifndef    JUCE_USE_ANDROID_OBOE
+ //#define JUCE_USE_ANDROID_OBOE 0
+#endif
+
 #ifndef    JUCE_USE_ANDROID_OPENSLES
  //#define JUCE_USE_ANDROID_OPENSLES 0
 #endif
@@ -286,10 +294,10 @@
  #define JucePlugin_Build_VST              1
 #endif
 #ifndef  JucePlugin_Build_VST3
- #define JucePlugin_Build_VST3             0
+ #define JucePlugin_Build_VST3             1
 #endif
 #ifndef  JucePlugin_Build_AU
- #define JucePlugin_Build_AU               1
+ #define JucePlugin_Build_AU               0
 #endif
 #ifndef  JucePlugin_Build_AUv3
  #define JucePlugin_Build_AUv3             0
@@ -325,7 +333,7 @@
  #define JucePlugin_ManufacturerCode       0x4d616e75 // 'Manu'
 #endif
 #ifndef  JucePlugin_PluginCode
- #define JucePlugin_PluginCode             0x4b723634 // 'Kr64'
+ #define JucePlugin_PluginCode             0x5262346e // 'Rb4n'
 #endif
 #ifndef  JucePlugin_IsSynth
  #define JucePlugin_IsSynth                0
@@ -357,8 +365,11 @@
 #ifndef  JucePlugin_VSTCategory
  #define JucePlugin_VSTCategory            kPlugCategEffect
 #endif
+#ifndef  JucePlugin_Vst3Category
+ #define JucePlugin_Vst3Category           "Fx"
+#endif
 #ifndef  JucePlugin_AUMainType
- #define JucePlugin_AUMainType             kAudioUnitType_Effect
+ #define JucePlugin_AUMainType             'aufx'
 #endif
 #ifndef  JucePlugin_AUSubType
  #define JucePlugin_AUSubType              JucePlugin_PluginCode
@@ -376,7 +387,7 @@
  #define JucePlugin_CFBundleIdentifier     com.yourcompany.ParagraphicEQ
 #endif
 #ifndef  JucePlugin_RTASCategory
- #define JucePlugin_RTASCategory           ePlugInCategory_None
+ #define JucePlugin_RTASCategory           0
 #endif
 #ifndef  JucePlugin_RTASManufacturerCode
  #define JucePlugin_RTASManufacturerCode   JucePlugin_ManufacturerCode
@@ -400,7 +411,7 @@
  #define JucePlugin_AAXProductId           JucePlugin_PluginCode
 #endif
 #ifndef  JucePlugin_AAXCategory
- #define JucePlugin_AAXCategory            AAX_ePlugInCategory_Dynamics
+ #define JucePlugin_AAXCategory            0
 #endif
 #ifndef  JucePlugin_AAXDisableBypass
  #define JucePlugin_AAXDisableBypass       0
