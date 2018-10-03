@@ -1,22 +1,22 @@
 Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2017
 
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ParagraphicEQ - Standalone Plugin", "ParagraphicEQ_StandalonePlugin.vcxproj", "{615A2400-DF1A-E4E6-FB73-621476BE79B0}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ParagraphicEQ - Standalone Plugin", "ParagraphicEQ_StandalonePlugin.vcxproj", "{9CF8CBD2-6567-0362-2C30-26A73930519D}"
 	ProjectSection(ProjectDependencies) = postProject
-		{BF6C981E-D66B-3A36-2612-9859EE673E5F} = {BF6C981E-D66B-3A36-2612-9859EE673E5F}
+		{CE525F69-0A2D-2A15-FACD-20CC8EDAE2DA} = {CE525F69-0A2D-2A15-FACD-20CC8EDAE2DA}
 	EndProjectSection
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ParagraphicEQ - VST", "ParagraphicEQ_VST.vcxproj", "{DBA40475-EED3-6DDD-EB3A-1AFC4A4E92A3}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ParagraphicEQ - VST", "ParagraphicEQ_VST.vcxproj", "{99450B4D-A2D2-77DB-1383-ECC10090BCB6}"
 	ProjectSection(ProjectDependencies) = postProject
-		{BF6C981E-D66B-3A36-2612-9859EE673E5F} = {BF6C981E-D66B-3A36-2612-9859EE673E5F}
+		{CE525F69-0A2D-2A15-FACD-20CC8EDAE2DA} = {CE525F69-0A2D-2A15-FACD-20CC8EDAE2DA}
 	EndProjectSection
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ParagraphicEQ - VST3", "ParagraphicEQ_VST3.vcxproj", "{836D8E92-A50B-9066-D888-6AC80A16F0A0}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ParagraphicEQ - VST3", "ParagraphicEQ_VST3.vcxproj", "{45C29E14-07A3-41C6-4AC3-90D786B12C53}"
 	ProjectSection(ProjectDependencies) = postProject
-		{BF6C981E-D66B-3A36-2612-9859EE673E5F} = {BF6C981E-D66B-3A36-2612-9859EE673E5F}
+		{CE525F69-0A2D-2A15-FACD-20CC8EDAE2DA} = {CE525F69-0A2D-2A15-FACD-20CC8EDAE2DA}
 	EndProjectSection
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ParagraphicEQ - Shared Code", "ParagraphicEQ_SharedCode.vcxproj", "{BF6C981E-D66B-3A36-2612-9859EE673E5F}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ParagraphicEQ - Shared Code", "ParagraphicEQ_SharedCode.vcxproj", "{CE525F69-0A2D-2A15-FACD-20CC8EDAE2DA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -24,22 +24,22 @@ Global
 		Release|x64 = Release|x64
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{DBA40475-EED3-6DDD-EB3A-1AFC4A4E92A3}.Debug|x64.ActiveCfg = Debug|x64
-		{DBA40475-EED3-6DDD-EB3A-1AFC4A4E92A3}.Debug|x64.Build.0 = Debug|x64
-		{DBA40475-EED3-6DDD-EB3A-1AFC4A4E92A3}.Release|x64.ActiveCfg = Release|x64
-		{DBA40475-EED3-6DDD-EB3A-1AFC4A4E92A3}.Release|x64.Build.0 = Release|x64
-		{836D8E92-A50B-9066-D888-6AC80A16F0A0}.Debug|x64.ActiveCfg = Debug|x64
-		{836D8E92-A50B-9066-D888-6AC80A16F0A0}.Debug|x64.Build.0 = Debug|x64
-		{836D8E92-A50B-9066-D888-6AC80A16F0A0}.Release|x64.ActiveCfg = Release|x64
-		{836D8E92-A50B-9066-D888-6AC80A16F0A0}.Release|x64.Build.0 = Release|x64
-		{615A2400-DF1A-E4E6-FB73-621476BE79B0}.Debug|x64.ActiveCfg = Debug|x64
-		{615A2400-DF1A-E4E6-FB73-621476BE79B0}.Debug|x64.Build.0 = Debug|x64
-		{615A2400-DF1A-E4E6-FB73-621476BE79B0}.Release|x64.ActiveCfg = Release|x64
-		{615A2400-DF1A-E4E6-FB73-621476BE79B0}.Release|x64.Build.0 = Release|x64
-		{BF6C981E-D66B-3A36-2612-9859EE673E5F}.Debug|x64.ActiveCfg = Debug|x64
-		{BF6C981E-D66B-3A36-2612-9859EE673E5F}.Debug|x64.Build.0 = Debug|x64
-		{BF6C981E-D66B-3A36-2612-9859EE673E5F}.Release|x64.ActiveCfg = Release|x64
-		{BF6C981E-D66B-3A36-2612-9859EE673E5F}.Release|x64.Build.0 = Release|x64
+		{99450B4D-A2D2-77DB-1383-ECC10090BCB6}.Debug|x64.ActiveCfg = Debug|x64
+		{99450B4D-A2D2-77DB-1383-ECC10090BCB6}.Debug|x64.Build.0 = Debug|x64
+		{99450B4D-A2D2-77DB-1383-ECC10090BCB6}.Release|x64.ActiveCfg = Release|x64
+		{99450B4D-A2D2-77DB-1383-ECC10090BCB6}.Release|x64.Build.0 = Release|x64
+		{45C29E14-07A3-41C6-4AC3-90D786B12C53}.Debug|x64.ActiveCfg = Debug|x64
+		{45C29E14-07A3-41C6-4AC3-90D786B12C53}.Debug|x64.Build.0 = Debug|x64
+		{45C29E14-07A3-41C6-4AC3-90D786B12C53}.Release|x64.ActiveCfg = Release|x64
+		{45C29E14-07A3-41C6-4AC3-90D786B12C53}.Release|x64.Build.0 = Release|x64
+		{9CF8CBD2-6567-0362-2C30-26A73930519D}.Debug|x64.ActiveCfg = Debug|x64
+		{9CF8CBD2-6567-0362-2C30-26A73930519D}.Debug|x64.Build.0 = Debug|x64
+		{9CF8CBD2-6567-0362-2C30-26A73930519D}.Release|x64.ActiveCfg = Release|x64
+		{9CF8CBD2-6567-0362-2C30-26A73930519D}.Release|x64.Build.0 = Release|x64
+		{CE525F69-0A2D-2A15-FACD-20CC8EDAE2DA}.Debug|x64.ActiveCfg = Debug|x64
+		{CE525F69-0A2D-2A15-FACD-20CC8EDAE2DA}.Debug|x64.Build.0 = Debug|x64
+		{CE525F69-0A2D-2A15-FACD-20CC8EDAE2DA}.Release|x64.ActiveCfg = Release|x64
+		{CE525F69-0A2D-2A15-FACD-20CC8EDAE2DA}.Release|x64.Build.0 = Release|x64
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
