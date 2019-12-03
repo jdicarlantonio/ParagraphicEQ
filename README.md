@@ -1,6 +1,6 @@
 # ParagraphicEQ
 
-ParagraphicEQ is a simple four-band paragraphic equalizer VST plugin for windows and linux. It uses the biquad design from http://www.musicdsp.org/files/Audio-EQ-Cookbook.txt.
+ParagraphicEQ is a simple four-band paragraphic equalizer VST plugin for windows and linux. It uses the biquad design from https://www.musicdsp.org/en/latest/Filters/197-rbj-audio-eq-cookbook.html.
 
 
 ## How It Works
