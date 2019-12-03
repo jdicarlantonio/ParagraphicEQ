@@ -1,13 +1,3 @@
-/*
-  ==============================================================================
-
-    BypassLookAndFeel.cpp
-    Created: 7 Aug 2017 3:52:52pm
-    Author:  WJ
-
-  ==============================================================================
-*/
-
 #include "BypassLookAndFeel.h"
 
 BypassLookAndFeel::BypassLookAndFeel()

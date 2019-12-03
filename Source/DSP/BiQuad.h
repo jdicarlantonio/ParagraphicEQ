@@ -1,19 +1,8 @@
-/*
-  ==============================================================================
-
-    BiQuad.h
-    Created: 9 Aug 2017 3:57:07pm
-    Author:  WJ
-
-  ==============================================================================
-*/
-
 #pragma once
 
 #include <iostream>
 
 static constexpr double PI = 3.14159;
-//static constexpr double ROOT_TWO = 1.41421;
 
 enum FilterType
 {
@@ -26,7 +15,7 @@ class BiQuad
 {
 public:
 	BiQuad();
-	BiQuad(FilterType ftype); // 0 Peak, 1 Low pass, 2 High Pass, etc... (see enum)
+	BiQuad(FilterType ftype); 
 	~BiQuad();
 
 	void calculateCoefficients(float fs, float f0, float gain, float Q = 2);
